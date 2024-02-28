@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "dev": "nodemon",
+    "start": "vite dienen --host --port 3000",
+    "setup": "npm i && pm2 start --name back-e-commerce npm -- start --update-env --time && pm2 save",
+    "deploy": "git pull --no-rebase && pm2 restart back-e-commerce --update-env --time && pm2 save"
   },
   "nodemonConfig": {
     "ext": "ts, json",
