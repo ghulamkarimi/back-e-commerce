@@ -1,0 +1,26 @@
+### register user
+POST http://localhost:3600/api/register
+Content-Type: application/json
+
+{
+    "firstName": "Ghulam",
+    "lastName": "Karimi",
+    "email": "karimiamirhossein12@gmail.com",
+    "password": "12345",
+    "confirmPassword": "12345",
+    "isAdmin": false
+}
+
+### verify user
+GET  http://localhost:3600/api/verify_token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthcmltaWFtaXJob3NzZWluMTJAZ21haWwuY29tIiwiaWF0IjoxNzA5MTExMDQ5LCJleHAiOjE3MDkxMTExNjl9.EU4lTCRyUyiIkyIJPnwfZVgvmMDE0Sm5dCMFbr057Bo
+ 
+
+### login user
+POST http://localhost:3600/api/login
+Content-Type: application/json
+
+{
+    "email": "karimiamirhossein12@gmail.com"
+}
+
+ 
