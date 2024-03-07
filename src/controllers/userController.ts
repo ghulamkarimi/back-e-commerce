@@ -9,6 +9,13 @@ import randomBytes from 'randombytes';
 
 
 
+export const getAllusers= asyncHandler(async(req:Request, res:Response)=> {
+    const users = await User.find()
+    res.json(users)
+
+})
+
+
 export const registerUser = asyncHandler(async (req: Request, res: Response) => {
     const { firstName, lastName, email, password, confirmPassword } = req.body;
     const userExist = await User.findOne({ email })
