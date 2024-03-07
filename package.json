@@ -8,7 +8,7 @@
     "build": "tsc --build",
     "start": "node dist/src/index.js",
     "setup": "npm i && npm run build && pm2 start --name back-e-commerce npm -- start --update-env --time && pm2 save",
-    "deploy": "git pull --no-rebase && npm run build && pm2 restart back-e-commerce--update-env --time && pm2 save"
+    "deploy": "git pull --no-rebase && npm run build && pm2 restart back-e-commerce --update-env --time && pm2 save"
   },
   "nodemonConfig": {
     "watch": [
