@@ -11,6 +11,10 @@ Content-Type: application/json
     "isAdmin": false
 }
 
+### get all users
+GET http://localhost:3600/api/user
+
+
 ### verify user
 GET  http://localhost:3600/api/verify_token/ac68ddb890fdd3c6181127979e87bcdd
  

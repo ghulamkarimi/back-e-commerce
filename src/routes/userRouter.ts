@@ -5,7 +5,7 @@ import { validatorCreateUser } from '../middleware/Validator';
 const router = Router();
 
 router.post('/api/register',validatorCreateUser ,registerUser);
-router.get('api/user' , getAllusers)
+router.get('/api/user' , getAllusers)
 router.get('/api/verify_token/:token', verifyAccount)
 router.post('/api/login', userLogin);
 router.delete('/api/logout/:token' , logOut)
