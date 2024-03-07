@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+ import mongoose from "mongoose"
 import bcrypt from "bcrypt";
 import { IUser } from '../interface/user'
 
@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema<IUser>({
     }
 )
 
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next:Function) {
     if (!this.isModified('password')) {
         next()
     }

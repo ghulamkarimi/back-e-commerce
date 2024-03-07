@@ -1,6 +1,6 @@
 import Router from 'express';
-import { logOut, registerUser, userLogin, verifyAccount } from '../controllers/userController.ts';
-import { validatorCreateUser } from '../middleware/Validator.ts';
+import { logOut, registerUser, userLogin, verifyAccount } from '../controllers/userController';
+import { validatorCreateUser } from '../middleware/Validator';
 
 const router = Router();
 

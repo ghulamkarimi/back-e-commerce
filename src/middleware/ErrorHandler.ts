@@ -1,7 +1,7 @@
  import { CustomError } from "../interface/user"
-import { Request, Response, NextFunction } from "express"
+import { Request, Response} from "express"
 
-export const ErrorHandler = (err: CustomError, req: Request, res: Response, next: NextFunction): void => {
+export const ErrorHandler = (err: CustomError, req: Request, res: Response, next: Function): void => {
     const statusCode: number = res.statusCode === 200 ? 500 : res.statusCode
     res.status(statusCode)
     res.json({
@@ -11,7 +11,7 @@ export const ErrorHandler = (err: CustomError, req: Request, res: Response, next
 }
 
 
-export const notFound = (req: Request, res: Response, next: NextFunction): void => {
+export const notFound = (req: Request, res: Response, next: Function): void => {
     const error: CustomError = new Error(`Not Found - ${req.originalUrl}`)
     error.statusCode = 404
     next(error)
