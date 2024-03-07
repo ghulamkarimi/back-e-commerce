@@ -1,5 +1,5 @@
 import express from 'express';
-import dotenv from 'dotenv';
+ import dotenv from 'dotenv'
 import dbConnect from '../config/dbConnect';
 import userRouter from './routes/userRouter'
 import cookieParser from 'cookie-parser'
@@ -10,7 +10,7 @@ dotenv.config();
 dbConnect()
 
 const app = express();
-const PORT = process.env.PORT || 3600;
+const PORT = process.env.PORT || 3500;
 
 app.use(express.json());
 app.use(cors())
