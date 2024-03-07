@@ -4,8 +4,12 @@ export interface IUser {
     email: string;
     password: string;
     isAdmin: boolean;
-    verify_token: boolean;
-    access_token: boolean;
-    isPasswordMatch: Function
+    isVerifyToken: boolean;
+    access_token: string;
+    isPasswordMatched: Function;
+    randomVerifyToken: string;
+}
 
+export interface CustomError extends Error {
+    statusCode?: number
 }

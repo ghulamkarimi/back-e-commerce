@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import { IUser } from '../interface/user'
 
 
@@ -24,14 +24,14 @@ const userSchema = new mongoose.Schema<IUser>({
         type: Boolean,
         default: false
     },
-    verify_token: {
+    isVerifyToken: {
         type: Boolean,
         default: false
 
     },
     access_token: {
-        type: Boolean,
-        default: false
+        type: String,
+
     },
 },
     {
@@ -43,13 +43,12 @@ userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {
         next()
     }
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt)
+    const salt = await bcrypt.genSalt(10); this.password = await bcrypt.hash(this.password, salt)
     next()
 })
 
-userSchema.methods.isPasswordMatch = async function (enteredPassword: string) {
-    return await bcrypt.compare(enteredPassword, this.password)
+userSchema.methods.isPasswordMatched = async function (enteredPassword: string) {
+    return this.password = await bcrypt.compare(enteredPassword, this.password)
 }
 
 const User = mongoose.model('User', userSchema);

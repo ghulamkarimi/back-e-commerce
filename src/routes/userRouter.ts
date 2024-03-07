@@ -1,11 +1,13 @@
 import Router from 'express';
-import { registerUser, userLogin, verifyAccount } from '../controllers/userController.ts';
+import { logOut, registerUser, userLogin, verifyAccount } from '../controllers/userController.ts';
+import { validatorCreateUser } from '../middleware/Validator.ts';
 
 const router = Router();
 
-router.post('/api/register', registerUser);
+router.post('/api/register',validatorCreateUser ,registerUser);
 router.get('/api/verify_token/:token', verifyAccount)
 router.post('/api/login', userLogin);
+router.delete('/api/logout/:token' , logOut)
 
 
 export default router;

@@ -1,20 +1,19 @@
 import nodemailer from 'nodemailer';
- 
+import dotenv from 'dotenv';
+dotenv.config();
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: "karimiamirhossein12@gmail.com",
-        pass: "qiai nvqk dyyo wpbp"
+        pass: process.env.PASSWORD
+        //      pass: "qiai nvqk dyyo wpbp"
     }
 })
 
-export const sendVerifyEmail = async (email:string,firstName:string, verifyToken:string) => {
+export const sendVerifyEmail = async (email: string, firstName: string, verifyToken: string) => {
     try {
-        // Benutzer anhand der E-Mail-Adresse finden
-        
-
-        let mailOptions = {
+        const mailOptions = {
             from: 'karimiamirhosein12gmail.com',
             to: email,
             subject: 'Verify Email',
